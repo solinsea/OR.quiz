@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 1 - Solutions</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="particles" id="particles-js"></div>
+    
+    <header class="hero-section reveal">
+        <div class="glass-panel">
+            <h1 class="gradient-text">Quiz 1 Solutions</h1>
+            <p>Comprehensive step-by-step solutions for decision theory problems.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Problem 1 -->
+        <section class="problem-container reveal">
+            <div class="problem-statement glass-card">
+                <div class="card-header">
+                    <h2>Problem 1</h2>
+                </div>
+                <div class="card-content original-text">
+                    <p>A baker must decide how many specialty cakes to bake each morning. From past experience, she knows that the daily demand for cakes ranges from 0 to 3. Each cake costs $3.00 to produce and sells for $8.00, and any unsold cakes are thrown into the garbage at the end of the day.</p>
+                    <ol type="a">
+                        <li>Set up a payoff table to help the baker decide how many cakes to bake.</li>
+                        <li>Set up the opportunity loss table.</li>
+                        <li>Draw the decision tree.</li>
+                    </ol>
+                    <p>Assume that the probability of each value of demand is the same for all possible demands.</p>
+                    <ol type="a" start="4">
+                        <li>Determine the EMV decision.</li>
+                        <li>Determine the EOL decision.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="solution-statement glass-card highlight-card">
+                <div class="card-header solution-header">
+                    <h2>Solution 1</h2>
+                </div>
+                <div class="card-content">
+                    <div class="solution-section">
+                        <h3>a. Payoff Table</h3>
+                        <p>Cost = $3.00, Price = $8.00. Profit per sold cake = $5.00, Loss per unsold cake = $3.00.</p>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Supply (Bake) \ Demand</th>
+                                        <th>0</th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><th>0</th><td>$0</td><td>$0</td><td>$0</td><td>$0</td></tr>
+                                    <tr><th>1</th><td>-$3</td><td>$5</td><td>$5</td><td>$5</td></tr>
+                                    <tr><th>2</th><td>-$6</td><td>$2</td><td>$10</td><td>$10</td></tr>
+                                    <tr><th>3</th><td>-$9</td><td>-$1</td><td>$7</td><td>$15</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="solution-section">
+                        <h3>b. Opportunity Loss Table</h3>
+                        <p>Opportunity Loss = Maximum possible payoff for a given demand - Actual payoff.</p>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Supply \ Demand</th>
+                                        <th>0</th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="max-row"><th>Max Payoff</th><td>$0</td><td>$5</td><td>$10</td><td>$15</td></tr>
+                                    <tr><th>0</th><td>$0</td><td>$5</td><td>$10</td><td>$15</td></tr>
+                                    <tr><th>1</th><td>$3</td><td>$0</td><td>$5</td><td>$10</td></tr>
+                                    <tr><th>2</th><td>$6</td><td>$3</td><td>$0</td><td>$5</td></tr>
+                                    <tr><th>3</th><td>$9</td><td>$6</td><td>$3</td><td>$0</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="solution-section">
+                        <h3>c. Decision Tree</h3>
+                        <div class="mermaid-canvas glass-panel">
+                            <div class="mermaid">
+                            graph LR
+                                D((Decision))
+                                D -->|Bake 0| B0(Bake 0)
+                                D -->|Bake 1| B1(Bake 1)
+                                D -->|Bake 2| B2(Bake 2)
+                                D -->|Bake 3| B3(Bake 3)
+                                
+                                B0 -->|P=0.25 Demand 0| B0D0[$0]
+                                B0 -->|P=0.25 Demand 1| B0D1[$0]
+                                B0 -->|P=0.25 Demand 2| B0D2[$0]
+                                B0 -->|P=0.25 Demand 3| B0D3[$0]
+
+                                B1 -->|P=0.25 Demand 0| B1D0[-$3]
+                                B1 -->|P=0.25 Demand 1| B1D1[$5]
+                                B1 -->|P=0.25 Demand 2| B1D2[$5]
+                                B1 -->|P=0.25 Demand 3| B1D3[$5]
+
+                                B2 -->|P=0.25 Demand 0| B2D0[-$6]
+                                B2 -->|P=0.25 Demand 1| B2D1[$2]
+                                B2 -->|P=0.25 Demand 2| B2D2[$10]
+                                B2 -->|P=0.25 Demand 3| B2D3[$10]
+
+                                B3 -->|P=0.25 Demand 0| B3D0[-$9]
+                                B3 -->|P=0.25 Demand 1| B3D1[-$1]
+                                B3 -->|P=0.25 Demand 2| B3D2[$7]
+                                B3 -->|P=0.25 Demand 3| B3D3[$15]
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="solution-section">
+                        <h3>d. EMV Decision</h3>
+                        <p>P(0) = P(1) = P(2) = P(3) = 0.25</p>
+                        <ul class="calc-list">
+                            <li><strong>EMV(0):</strong> 0.25 * (0 + 0 + 0 + 0) = <strong>$0</strong></li>
+                            <li><strong>EMV(1):</strong> 0.25 * (-3 + 5 + 5 + 5) = <strong>$3.00</strong></li>
+                            <li><strong>EMV(2):</strong> 0.25 * (-6 + 2 + 10 + 10) = <strong>$4.00</strong></li>
+                            <li><strong>EMV(3):</strong> 0.25 * (-9 - 1 + 7 + 15) = <strong>$3.00</strong></li>
+                        </ul>
+                        <div class="final-answer">
+                            <strong>Decision:</strong> Bake 2 Cakes (Maximum EMV = $4.00)
+                        </div>
+                    </div>
+
+                    <div class="solution-section">
+                        <h3>e. EOL Decision</h3>
+                        <ul class="calc-list">
+                            <li><strong>EOL(0):</strong> 0.25 * (0 + 5 + 10 + 15) = <strong>$7.50</strong></li>
+                            <li><strong>EOL(1):</strong> 0.25 * (3 + 0 + 5 + 10) = <strong>$4.50</strong></li>
+                            <li><strong>EOL(2):</strong> 0.25 * (6 + 3 + 0 + 5) = <strong>$3.50</strong></li>
+                            <li><strong>EOL(3):</strong> 0.25 * (9 + 6 + 3 + 0) = <strong>$4.50</strong></li>
+                        </ul>
+                        <div class="final-answer">
+                            <strong>Decision:</strong> Bake 2 Cakes (Minimum EOL = $3.50)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem 2 -->
+        <section class="problem-container reveal">
+            <div class="problem-statement glass-card">
+                <div class="card-header">
+                    <h2>Problem 2</h2>
+                </div>
+                <div class="card-content original-text">
+                    <p>The owner of a clothing store must decide how many men's shirts to order for the new season. For a particular type of shirt, she must order in quantities of 100 shirts. If she orders 100 shirts, her cost is $10 per shirt; if she orders 200 shirts, her cost is $9 per shirt; and if she orders 300 or more shirts, her cost is $8.50 per shirt. Her selling price for the shirt is $12, but any shirts that remain unsold at the end of the season are sold at her famous "halfprice, end-of-season sale." For the sake of simplicity, she is willing to assume that the demand for this type of shirt will be 100, 150, 200, or 250 shirts. Of course, she cannot sell more shirts than she stocks. She is also willing to assume that she will suffer no loss of goodwill among her customers if she understocks and the customers cannot buy all the shirts they want. Furthermore, she must place her order today for the entire season; she cannot wait to see how the demand is running for this type of shirt.</p>
+                    <ol type="a">
+                        <li>Construct the payoff table to help the owner decide how many shirts to order.</li>
+                        <li>Set up the opportunity loss table.</li>
+                        <li>Draw the decision tree.</li>
+                    </ol>
+                    <p>The owner has assigned the following probabilities:<br>
+                    P(Demand = 100) = 0.2, P(Demand = 150) = 0.25,<br>
+                    P(Demand = 200) = 0.40, P(Demand = 250) = 0.15</p>
+                    <ol type="a" start="4">
+                        <li>Find the EMV decision.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="solution-statement glass-card highlight-card">
+                <div class="card-header solution-header">
+                    <h2>Solution 2</h2>
+                </div>
+                <div class="card-content">
+                    <div class="solution-section">
+                        <h3>a. Payoff Table</h3>
+                        <p>Costs: Order 100 @ $10 ($1000) | Order 200 @ $9 ($1800) | Order 300 @ $8.50 ($2550).<br>
+                        Revenue: $12 per sold shirt | Salvage (half-price sale): $6 per unsold shirt.</p>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order \ Demand</th>
+                                        <th>100</th>
+                                        <th>150</th>
+                                        <th>200</th>
+                                        <th>250</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><th>100</th><td>$200</td><td>$200</td><td>$200</td><td>$200</td></tr>
+                                    <tr><th>200</th><td>$0</td><td>$300</td><td>$600</td><td>$600</td></tr>
+                                    <tr><th>300</th><td>-$150</td><td>$150</td><td>$450</td><td>$750</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="solution-section">
+                        <h3>b. Opportunity Loss Table</h3>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order \ Demand</th>
+                                        <th>100</th>
+                                        <th>150</th>
+                                        <th>200</th>
+                                        <th>250</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="max-row"><th>Max Payoff</th><td>$200</td><td>$300</td><td>$600</td><td>$750</td></tr>
+                                    <tr><th>100</th><td>$0</td><td>$100</td><td>$400</td><td>$550</td></tr>
+                                    <tr><th>200</th><td>$200</td><td>$0</td><td>$0</td><td>$150</td></tr>
+                                    <tr><th>300</th><td>$350</td><td>$150</td><td>$150</td><td>$0</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="solution-section">
+                        <h3>c. Decision Tree</h3>
+                        <div class="mermaid-canvas glass-panel">
+                            <div class="mermaid">
+                            graph LR
+                                D((Decision))
+                                D -->|Order 100| O100(Order 100)
+                                D -->|Order 200| O200(Order 200)
+                                D -->|Order 300| O300(Order 300)
+
+                                O100 -->|P=0.20 Demand 100| O100D100[$200]
+                                O100 -->|P=0.25 Demand 150| O100D150[$200]
+                                O100 -->|P=0.40 Demand 200| O100D200[$200]
+                                O100 -->|P=0.15 Demand 250| O100D250[$200]
+
+                                O200 -->|P=0.20 Demand 100| O200D100[$0]
+                                O200 -->|P=0.25 Demand 150| O200D150[$300]
+                                O200 -->|P=0.40 Demand 200| O200D200[$600]
+                                O200 -->|P=0.15 Demand 250| O200D250[$600]
+
+                                O300 -->|P=0.20 Demand 100| O300D100[-$150]
+                                O300 -->|P=0.25 Demand 150| O300D150[$150]
+                                O300 -->|P=0.40 Demand 200| O300D200[$450]
+                                O300 -->|P=0.15 Demand 250| O300D250[$750]
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="solution-section">
+                        <h3>d. EMV Decision</h3>
+                        <ul class="calc-list">
+                            <li><strong>EMV(100):</strong> $200 (since payoff is identical regardless of demand)</li>
+                            <li><strong>EMV(200):</strong> 0(0.20) + 300(0.25) + 600(0.40) + 600(0.15) = 0 + 75 + 240 + 90 = <strong>$405</strong></li>
+                            <li><strong>EMV(300):</strong> -150(0.20) + 150(0.25) + 450(0.40) + 750(0.15) = -30 + 37.5 + 180 + 112.5 = <strong>$300</strong></li>
+                        </ul>
+                        <div class="final-answer">
+                            <strong>Decision:</strong> Order 200 Shirts (Maximum EMV = $405)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem 3 -->
+        <section class="problem-container reveal">
+            <div class="problem-statement glass-card">
+                <div class="card-header">
+                    <h2>Problem 3</h2>
+                </div>
+                <div class="card-content original-text">
+                    <p>a. Find EMV*, and EVPI for the accompanying payoff table and probabilities.</p>
+                    <div class="table-responsive">
+                        <table class="data-table original-table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>State of Nature<br>S1</th>
+                                    <th>S2</th>
+                                    <th>S3</th>
+                                    <th>S4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><th>a1</th><td>60</td><td>40</td><td>220</td><td>250</td></tr>
+                                <tr><th>a2</th><td>110</td><td>110</td><td>120</td><td>120</td></tr>
+                                <tr><th>a3</th><td>75</td><td>150</td><td>85</td><td>130</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>P(S1) = 0.10 P(S2) = 0.25 P(S3) = 0.50 P(S4) = 0.15<br><br>
+                    b. determine the opportunity loss table and compute EOL*.</p>
+                </div>
+            </div>
+
+            <div class="solution-statement glass-card highlight-card">
+                <div class="card-header solution-header">
+                    <h2>Solution 3</h2>
+                </div>
+                <div class="card-content">
+                    <div class="solution-section">
+                        <h3>a. EMV* and EVPI</h3>
+                        <ul class="calc-list">
+                            <li><strong>EMV(a1):</strong> 60(0.10) + 40(0.25) + 220(0.50) + 250(0.15) = 6 + 10 + 110 + 37.5 = <strong>163.5</strong></li>
+                            <li><strong>EMV(a2):</strong> 110(0.10) + 110(0.25) + 120(0.50) + 120(0.15) = 11 + 27.5 + 60 + 18 = <strong>116.5</strong></li>
+                            <li><strong>EMV(a3):</strong> 75(0.10) + 150(0.25) + 85(0.50) + 130(0.15) = 7.5 + 37.5 + 42.5 + 19.5 = <strong>107.0</strong></li>
+                        </ul>
+                        <div class="final-answer">
+                            <strong>EMV*:</strong> Maximum is 163.5 (Alternative a1)
+                        </div>
+
+                        <p><strong>Calculating EVPI:</strong></p>
+                        <p>EVwPI (Expected Value with Perfect Information) = Expected Maximum Payoffs<br>
+                        Max S1: 110 (a2) | Max S2: 150 (a3) | Max S3: 220 (a1) | Max S4: 250 (a1)</p>
+                        <ul class="calc-list">
+                            <li><strong>EVwPI:</strong> 110(0.10) + 150(0.25) + 220(0.50) + 250(0.15) = 11 + 37.5 + 110 + 37.5 = <strong>196.0</strong></li>
+                            <li><strong>EVPI = EVwPI - EMV*</strong> = 196.0 - 163.5 = <strong>32.5</strong></li>
+                        </ul>
+                        <div class="final-answer">
+                            <strong>EVPI:</strong> 32.5
+                        </div>
+                    </div>
+
+                    <div class="solution-section">
+                        <h3>b. Opportunity Loss Table & EOL*</h3>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Alternative \ State</th>
+                                        <th>S1 (Max 110)</th>
+                                        <th>S2 (Max 150)</th>
+                                        <th>S3 (Max 220)</th>
+                                        <th>S4 (Max 250)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><th>a1</th><td>50</td><td>110</td><td>0</td><td>0</td></tr>
+                                    <tr><th>a2</th><td>0</td><td>40</td><td>100</td><td>130</td></tr>
+                                    <tr><th>a3</th><td>35</td><td>0</td><td>135</td><td>120</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <ul class="calc-list" style="margin-top: 20px;">
+                            <li><strong>EOL(a1):</strong> 50(0.10) + 110(0.25) + 0(0.50) + 0(0.15) = 5 + 27.5 = <strong>32.5</strong></li>
+                            <li><strong>EOL(a2):</strong> 0(0.10) + 40(0.25) + 100(0.50) + 130(0.15) = 0 + 10 + 50 + 19.5 = <strong>79.5</strong></li>
+                            <li><strong>EOL(a3):</strong> 35(0.10) + 0(0.25) + 135(0.50) + 120(0.15) = 3.5 + 0 + 67.5 + 18 = <strong>89.0</strong></li>
+                        </ul>
+                        <div class="final-answer">
+                            <strong>EOL*:</strong> Minimum is 32.5 (Alternative a1). <br><em>Note: EOL* always equals EVPI!</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Built with <span style="color: #e25555;">&hearts;</span> and Beautiful Animations</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
